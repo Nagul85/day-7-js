@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class UberPriceCalculator {
+  constructor(baseFare, perMinuteRate, perMileRate, surgeMultiplier = 1) {
+    this.baseFare = baseFare;
+    this.perMinuteRate = perMinuteRate;
+    this.perMileRate = perMileRate;
+    this.surgeMultiplier = surgeMultiplier;
+  }
+
+  calculateFare(distanceMiles, durationMinutes) {
+    // Calculate the fare based on distance, duration, and surge pricing
+    const fare = (
+      this.baseFare +
+      this.perMinuteRate * durationMinutes +
+      this.perMileRate * distanceMiles
+    ) * this.surgeMultiplier;
+
+    return fare;
+  }
+}
+
+// Example usage:
+const calculator = new UberPriceCalculator(2.5, 0.3, 1.2, 1.5); // Base fare: $2.5, Per minute rate: $0.3, Per mile rate: $1.2, Surge multiplier: 1.5
+
+const distance = 10; // miles
+const duration = 20; // minutes
+
+const fare = calculator.calculateFare(distance, duration);
+console.log(`The estimated fare is $${fare.toFixed(2)}`);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  getAge() {
+    return this.age;
+  }
+
+  setAge(newAge) {
+    if (newAge >= 0) {
+      this.age = newAge;
+    } else {
+      console.log("Age cannot be negative.");
+    }
+  }
+}
+
+// Creating a new Person object
+const person1 = new Person("John", "Doe", 30);
+
+// Accessing properties and methods
+console.log(person1.getFullName()); // Output: John Doe
+console.log(person1.getAge());      // Output: 30
+
+// Modifying age
+person1.setAge(35);
+console.log(person1.getAge());      // Output: 35
+
+// Attempting to set a negative age
+person1.setAge(-5); // Output: Age cannot be negative.
+console.log(person1.getAge());      // Output: 35 (age is unchanged
+
+    </script>
+    
+</body>
+</html>
